@@ -10,6 +10,11 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Angin", "Angin\Angin.vcxpro
 		{4645E286-87B4-494B-9070-D928C8239F71} = {4645E286-87B4-494B-9070-D928C8239F71}
 	EndProjectSection
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "UnitTesting", "UnitTesting\UnitTesting\UnitTesting.vcxproj", "{BFC74580-C16D-42E6-B980-3BEC0419D37E}"
+	ProjectSection(ProjectDependencies) = postProject
+		{4645E286-87B4-494B-9070-D928C8239F71} = {4645E286-87B4-494B-9070-D928C8239F71}
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -24,6 +29,10 @@ Global
 		{D095A14C-0DF6-47BE-9FE3-E28B6CCC5808}.Debug|Win32.Build.0 = Debug|Win32
 		{D095A14C-0DF6-47BE-9FE3-E28B6CCC5808}.Release|Win32.ActiveCfg = Release|Win32
 		{D095A14C-0DF6-47BE-9FE3-E28B6CCC5808}.Release|Win32.Build.0 = Release|Win32
+		{BFC74580-C16D-42E6-B980-3BEC0419D37E}.Debug|Win32.ActiveCfg = Debug|Win32
+		{BFC74580-C16D-42E6-B980-3BEC0419D37E}.Debug|Win32.Build.0 = Debug|Win32
+		{BFC74580-C16D-42E6-B980-3BEC0419D37E}.Release|Win32.ActiveCfg = Release|Win32
+		{BFC74580-C16D-42E6-B980-3BEC0419D37E}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
