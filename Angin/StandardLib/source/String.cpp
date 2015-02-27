@@ -8,13 +8,35 @@ String::String()
 
 String::String(char * a_string)
 {
-	m_charArray = a_string;
-	UpdateLength();
+	// Make a pointer to the string arguement
+	const char * ptr = a_string;
+
+	// Reset the length
+	m_length = 0;
+
+	// Incriment the pointer and the length until we get to the null turminator
+	while (*ptr != 0)
+	{
+		m_length++;
+		ptr++;
+	}
+
+	// Create memory for our new char[]
+	m_charArray = new char[m_length + 1];
+
+	// copy over the data from the arguement to this
+	for (unsigned int i = 0; i < m_length; i++)
+	{
+		m_charArray[i] = a_string[i];
+	}
+
+	// add the null turminator
+	m_charArray[m_length] = 0;
 }
 
 String::String(const String & a_other)
 {
-	m_length = a_other.GetLength();
+	m_length = a_other.m_length;
 	m_charArray = new char[m_length + 1];
 
 	for (unsigned int i = 0; i < m_length; i++)
@@ -23,7 +45,7 @@ String::String(const String & a_other)
 		m_charArray[i] = a_other.m_charArray[i];
 	}
 	// add a null turminator to the end of the char array
-	m_charArray[m_length + 1] = 0;
+	m_charArray[m_length] = 0;
 }
 
 String::String(String && a_other)
@@ -57,9 +79,7 @@ String::~String()
 
 String & String::operator=(const String & a_other)
 {
-	delete[] m_charArray;
-
-	m_length = a_other.GetLength();
+	m_length = a_other.m_length;
 	m_charArray = new char[m_length + 1];
 	
 	for (unsigned int i = 0; i < m_length; i++)
@@ -68,7 +88,7 @@ String & String::operator=(const String & a_other)
 		m_charArray[i] = a_other.m_charArray[i];
 	}
 	// add a null turminator to the end of the char array
-	m_charArray[m_length + 1] = 0;
+	m_charArray[m_length] = 0;
 
 	return *this;
 }
@@ -105,19 +125,21 @@ String String::operator+(const String & a_other) const
 	// Calculate the length of the new string
 	temp.m_length = m_length + a_other.m_length;
 	// Allocate memory for the string to be stored in
-	temp.m_charArray = new char[m_length + 1];
+	temp.m_charArray = new char[temp.m_length + 1];
 	// copy the string from this to the new string
 	for (unsigned int i = 0; i < m_length; i++)
 	{
 		temp.m_charArray[i] = m_charArray[i];
 	}
 	// copy the string from the other string into the new string
+	unsigned int j = 0;
 	for (unsigned int i = m_length; i < temp.m_length; i++)
 	{
-		temp.m_charArray[i] = a_other.m_charArray[i];
+		temp.m_charArray[i] = a_other.m_charArray[j];
+		j++;
 	}
 	// add a null terminator to the end
-	temp.m_charArray[temp.m_length + 1] = 0;
+	temp.m_charArray[temp.m_length] = 0;
 
 	return temp;
 }
@@ -151,9 +173,45 @@ const unsigned int String::GetLength() const
 	return m_length;
 }
 
-char & String::GetString() const
+char * String::GetString() const
 {
-	return *m_charArray;
+	return m_charArray;
+}
+
+void String::SetString(const char * a_string)
+{
+	// Check if there is data already there
+	if (m_charArray != nullptr)
+	{
+		// if so, delete it
+		delete[] m_charArray;
+		m_charArray = nullptr;
+	}
+
+	// Make a pointer to the string arguement
+	const char * ptr = a_string;
+
+	// Reset the length
+	m_length = 0;
+
+	// Incriment the pointer and the length until we get to the null turminator
+	while (*ptr != 0)
+	{
+		m_length++;
+		ptr++;
+	}
+
+	// Create memory for our new char[]
+	m_charArray = new char[m_length + 1];
+
+	// copy over the data from the arguement to this
+	for (unsigned int i = 0; i < m_length; i++)
+	{
+		m_charArray[i] = a_string[i];
+	}
+
+	// add the null turminator
+	m_charArray[m_length] = 0;
 }
 
 void String::UpdateLength()

@@ -1,38 +1,49 @@
 #pragma once
 
+#ifdef STANDARD_EXPORTS
+#	define STANDARD_API __declspec(dllexport)
+#else
+#	define STANDARD_API __declspec(dllimport)
+#endif
+
 class String
 {
 public:	
 	// Constructor
-	String();
+	STANDARD_API String();
 	// Constructor that takes in a char array
-	String(char * string);
+	STANDARD_API String(char * string);
 	// Copy constructor
-	String(const String & other);
+	STANDARD_API String(const String & other);
 	// Move constructor
-	String(String && other);
+	STANDARD_API String(String && other);
 	// Destructor
-	~String();
+	STANDARD_API ~String();
 	// Copy assignment: leaves a copy there
-	String & operator = (const String & other);
+	STANDARD_API String & operator = (const String & other);
 	// Move assignment: moves the data from other
-	String & operator = (String && other);
+	STANDARD_API String & operator = (String && other);
 	// + operator: returns a string that contains the two strings
-	String operator + (const String & other) const;
+	STANDARD_API String operator + (const String & other) const;
 	// += operator: adds the other string to this string
-	String & operator += (const String & other);
+	STANDARD_API String & operator += (const String & other);
 	// == operator: returns true if the two strings are the same
-	bool operator == (const String & other);
+	STANDARD_API bool operator == (const String & other);
 	// != operator: returns true if the two strings are different
-	bool operator != (const String & other);
+	STANDARD_API bool operator != (const String & other);
+	
 	// Returns the current length of the String
-	const unsigned int GetLength() const;
-	// Returns the begining of the string as a char reference
-	char & GetString() const;
-	// Recalculate the length of the string
-	void UpdateLength();
+	STANDARD_API const unsigned int GetLength() const;
+	// Returns the begining of the string as a char pointer
+	STANDARD_API char * GetString() const;
+
+	// Set the string
+	STANDARD_API void SetString(const char * string);
 		
 private:
+	// Recalculate the length of the string
+	STANDARD_API void UpdateLength();
+
 	char * m_charArray;
 
 	unsigned int m_length;
