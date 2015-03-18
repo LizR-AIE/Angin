@@ -6,6 +6,8 @@
 #	define STANDARD_API __declspec(dllimport)
 #endif
 
+#pragma pack(push)
+
 class String
 {
 public:	
@@ -34,7 +36,7 @@ public:
 	
 	// Returns the current length of the String
 	STANDARD_API const unsigned int GetLength() const;
-	// Returns the begining of the string as a char pointer
+	// Returns the beginning of the string as a char pointer
 	STANDARD_API char * GetString() const;
 
 	// Set the string
@@ -48,3 +50,4 @@ private:
 
 	unsigned int m_length;
 };
+#pragma pack(pop)
