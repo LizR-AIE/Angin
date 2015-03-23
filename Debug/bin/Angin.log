@@ -1,0 +1,19 @@
+﻿Build started 23/03/2015 4:22:42 PM.
+     1>Project "C:\Users\elizabeth.rowlands\Documents\GitHub\Angin\Angin\Angin\Angin.vcxproj" on node 2 (Build target(s)).
+     1>C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets(381,5): warning MSB8028: The intermediate directory (C:\Users\elizabeth.rowlands\Documents\GitHub\Angin\Angin\..\Debug\bin\) contains files shared from another project (StandardLib.vcxproj).  This can lead to incorrect clean and rebuild behavior.
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /IC:\Users\elizabeth.rowlands\Documents\GitHub\Angin\Angin\Angin\include /IC:\Users\elizabeth.rowlands\Documents\GitHub\Angin\Angin\\3rdParty\glm\ /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _LIB /D _WINDLL /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"C:\Users\elizabeth.rowlands\Documents\GitHub\Angin\Angin\..\Debug\bin\\" /Fd"C:\Users\elizabeth.rowlands\Documents\GitHub\Angin\Angin\..\Debug\bin\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt source\Game.cpp source\Object.cpp source\Window.cpp
+         Window.cpp
+         Object.cpp
+         Game.cpp
+         Generating Code...
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\elizabeth.rowlands\Documents\GitHub\Angin\Angin\..\Debug\Angin_d.dll" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\elizabeth.rowlands\Documents\GitHub\Angin\Angin\..\Debug\Angin_d.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\elizabeth.rowlands\Documents\GitHub\Angin\Angin\..\Debug\Angin_d.lib" /MACHINE:X86 /DLL C:\Users\elizabeth.rowlands\Documents\GitHub\Angin\Angin\..\Debug\bin\Game.obj
+         C:\Users\elizabeth.rowlands\Documents\GitHub\Angin\Angin\..\Debug\bin\Object.obj
+         C:\Users\elizabeth.rowlands\Documents\GitHub\Angin\Angin\..\Debug\bin\Window.obj
+         Angin.vcxproj -> C:\Users\elizabeth.rowlands\Documents\GitHub\Angin\Angin\..\Debug\Angin_d.dll
+     1>Done Building Project "C:\Users\elizabeth.rowlands\Documents\GitHub\Angin\Angin\Angin\Angin.vcxproj" (Build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:00.35
