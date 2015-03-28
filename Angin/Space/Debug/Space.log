@@ -1,15 +1,13 @@
-﻿Build started 23/03/2015 5:35:51 PM.
-     1>Project "C:\Users\elizabeth.rowlands\Documents\GitHub\Angin\Angin\Space\Space.vcxproj" on node 2 (Build target(s)).
+﻿Build started 28/03/2015 10:59:04 PM.
+     1>Project "L:\Git Repos\Angin\Angin\Space\Space.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /IC:\Users\elizabeth.rowlands\Documents\GitHub\Angin\Angin\Space\\include\ /IC:\Users\elizabeth.rowlands\Documents\GitHub\Angin\Angin\\2ndParty\Angine\ /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt source\Space.cpp
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /I"L:\Git Repos\Angin\Angin\Space\\include\\" /I"L:\Git Repos\Angin\Angin\\Angin\include\\" /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt source\main.cpp source\Space.cpp
          Space.cpp
-       Link:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\elizabeth.rowlands\Documents\GitHub\Angin\Angin\Debug\Space.exe" /INCREMENTAL /NOLOGO /LIBPATH:C:\Users\elizabeth.rowlands\Documents\GitHub\Angin\Angin\\2ndParty\Angine\ Angin_d.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\elizabeth.rowlands\Documents\GitHub\Angin\Angin\Debug\Space.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\elizabeth.rowlands\Documents\GitHub\Angin\Angin\Debug\Space.lib" /MACHINE:X86 Debug\main.obj
-         Debug\Space.obj
-     1>Angin_d.lib(Game.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'Angin_d.lib(Game.obj)' or at 'C:\Users\elizabeth.rowlands\Documents\GitHub\Angin\Angin\Debug\vc120.pdb'; linking object as if no debug info
-         Space.vcxproj -> C:\Users\elizabeth.rowlands\Documents\GitHub\Angin\Angin\Debug\Space.exe
-     1>Done Building Project "C:\Users\elizabeth.rowlands\Documents\GitHub\Angin\Angin\Space\Space.vcxproj" (Build target(s)).
+         main.cpp
+     1>l:\git repos\angin\angin\angin\include\window.h(3): fatal error C1083: Cannot open include file: 'GLFW\glfw3.h': No such file or directory
+         Generating Code...
+     1>Done Building Project "L:\Git Repos\Angin\Angin\Space\Space.vcxproj" (Build target(s)) -- FAILED.
 
-Build succeeded.
+Build FAILED.
 
-Time Elapsed 00:00:00.51
+Time Elapsed 00:00:00.15

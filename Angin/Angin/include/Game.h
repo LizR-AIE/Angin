@@ -1,28 +1,22 @@
 #pragma once
 
-#define WindowWidth Game::GetWindowWidth()
-#define WindowHeight Game::GetWindowHeight()
-#define FullScreen Game::IsFullScreen()
+#ifdef ANGIN_EXPORTS
+#	define ANGIN_API __declspec(dllexport)
+#else
+#	define ANGIN_API __declspec(dllimport)
+#endif
 
 class Game
 {
 public:
-	static void Create();
-	virtual void Loop();
-	static void Destroy();
-	virtual ~Game();
+	ANGIN_API static void Create();
+	ANGIN_API virtual void Loop();
+	ANGIN_API static void Destroy();
+	ANGIN_API virtual ~Game();
 
-	inline static Game * Get(){ return m_game; }
-	inline static unsigned int GetWindowWidth(){ return m_windowWidth; }
-	inline static unsigned int GetWindowHeight(){ return m_windowHeight; }
-	inline static bool IsFullScreen() { return m_fullScreen; }
-
+	ANGIN_API inline static Game * Get(){ return m_game; }
+	
 protected:
-	Game();
+	ANGIN_API Game();
 	static Game * m_game;
-
-private:
-	static unsigned int m_windowWidth;
-	static unsigned int m_windowHeight;
-	static bool m_fullScreen;
 };

@@ -12,7 +12,8 @@ Space::~Space()
 
 void Space::Create()
 {
-	m_game = new Space();
+	if (m_game == nullptr)
+		m_game = new Space();
 }
 
 void Space::Loop()

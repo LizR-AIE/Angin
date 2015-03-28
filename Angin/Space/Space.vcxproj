@@ -17,6 +17,11 @@
     <ClCompile Include="source\main.cpp" />
     <ClCompile Include="source\Space.cpp" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Angin\Angin.vcxproj">
+      <Project>{d095a14c-0df6-47be-9fe3-e28b6ccc5808}</Project>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{B7412DB3-005A-4AAA-8D6B-B919B70118F4}</ProjectGuid>
     <RootNamespace>Space</RootNamespace>
@@ -51,12 +56,10 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>$(ProjectDir)\include\;$(SolutionDir)\2ndParty\Angine\;</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)\include\;$(SolutionDir)\Angin\include\;</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>Angin_d.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>$(SolutionDir)\2ndParty\Angine\;</AdditionalLibraryDirectories>
     </Link>
     <PreBuildEvent>
       <Command>
@@ -70,7 +73,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>($ProjectDir).\include;$(SolutionDir)\$(Configuration)Libs\;</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>($ProjectDir).\include;</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
