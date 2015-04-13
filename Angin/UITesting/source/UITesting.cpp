@@ -1,5 +1,7 @@
 #include "UITesting.h"
 #include <iostream>
+#include <SDL.h>
+#include <Window.h>
 
 Game * Game::m_game = nullptr;
 
@@ -21,7 +23,21 @@ void UITesting::Create()
 
 void UITesting::Loop()
 {
-	std::cout << "Hello World!" << std::endl;
+	float deltaTime = SDL_GetTicks();
+	Update(deltaTime);
+	Render();
+
+	SDL_UpdateWindowSurface(Window::Get()->GetWindow());
+}
+
+void UITesting::Update(float a_deltaTime)
+{
+	
+}
+
+void UITesting::Render()
+{
+	
 }
 
 void UITesting::Destroy()

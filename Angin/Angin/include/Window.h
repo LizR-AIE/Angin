@@ -1,6 +1,6 @@
 #pragma once
 
-#include <GLFW\glfw3.h>
+#include <SDL.h>
 
 #ifdef ANGIN_EXPORTS
 #	define ANGIN_API __declspec(dllexport)
@@ -19,7 +19,7 @@ public:
 	ANGIN_API inline unsigned int GetWindowWidth() { return m_windowWidth; }
 	ANGIN_API inline unsigned int GetWindowHeight() { return m_windowHeight; }
 
-	ANGIN_API inline GLFWwindow * GetWindow() { return m_glfwWindow; }
+	ANGIN_API inline SDL_Window * GetWindow() { return m_sdlWindow; }
 
 	ANGIN_API ~Window();
 
@@ -33,7 +33,8 @@ private:
 	int				m_windowHeight;
 	char *			m_windowName;
 
-	GLFWwindow *	m_glfwWindow;
+	SDL_Window *	m_sdlWindow;
+	SDL_Surface *	m_sdlSurface;
 
 	bool			m_fullScreen;
 

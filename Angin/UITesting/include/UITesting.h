@@ -13,6 +13,8 @@ public:
 
 	virtual ~UITesting();
 protected:
+	virtual void Update(float DeltaTime);
+	virtual void Render();
 
 private:
 	UITesting();
