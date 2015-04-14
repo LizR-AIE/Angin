@@ -13,6 +13,8 @@ public:
 	virtual void Loop();
 	static void Destroy();
 
+	static Space * Get() { return (Space*)m_game; }
+
 	virtual ~Space();
 
 protected:

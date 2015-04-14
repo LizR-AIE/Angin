@@ -136,6 +136,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="source\DynamicArray.h" />
     <ClInclude Include="source\String.h" />
   </ItemGroup>
   <ItemGroup>

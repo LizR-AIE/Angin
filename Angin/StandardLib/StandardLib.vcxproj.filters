@@ -18,6 +18,9 @@
     <ClInclude Include="source\String.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="source\DynamicArray.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="source\String.cpp">

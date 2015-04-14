@@ -1,5 +1,7 @@
 #include "Space.h"
 
+Game * Game::m_game = nullptr;
+
 Space::Space()
 {
 	
