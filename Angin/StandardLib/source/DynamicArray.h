@@ -1,5 +1,13 @@
 #pragma once
 
+#ifdef STANDARD_EXPORTS
+#	define STANDARD_API __declspec(dllexport)
+#else
+#	define STANDARD_API __declspec(dllimport)
+#endif
+
+#pragma pack(push)
+
 template<typename T>
 class DynamicArray
 {
@@ -7,18 +15,18 @@ public:
 	//--------------------------------
 	// Constructors and Destructor
 	//--------------------------------
-	DynamicArray();
-	DynamicArray(const DynamicArray &other);
-	DynamicArray(DynamicArray && other);
-	~DynamicArray();
+	STANDARD_API DynamicArray();
+	STANDARD_API DynamicArray(const DynamicArray &other);
+	STANDARD_API DynamicArray(DynamicArray && other);
+	STANDARD_API ~DynamicArray();
 
 	//--------------------------------
 	// Assignment operators: 
 	// copy and move assignment 
 	// += -= *= /= %= &= |= ^= <<= >>=
 	//--------------------------------
-	DynamicArray& operator=(const DynamicArray& other);
-	DynamicArray& operator=(DynamicArray && other);
+	STANDARD_API DynamicArray& operator=(const DynamicArray& other);
+	STANDARD_API DynamicArray& operator=(DynamicArray && other);
 	// +=		operator overload
 	// -=		operator overload
 	// *=		operator overload
@@ -104,9 +112,22 @@ public:
 	// new[]	operator overload
 	// delete[]	operator overload
 	
-private:
-	T* m_array;
+	//--------------------------------
+	// Functions
+	//--------------------------------
+	STANDARD_API void PushBack(T &toPushBack);
+	STANDARD_API void PopBack();
+	STANDARD_API void Clear();
+	STANDARD_API unsigned int Size();
 
+private:
+	// Internal functions
+	STANDARD_API void Resize();
+
+	// Variables
+	T** m_array;
+	unsigned int m_allocatedMemorySize;
+	unsigned int m_usedMemorySize;
 };
 
 #include "DynamicArray.cpp"
