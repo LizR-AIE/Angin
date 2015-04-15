@@ -46,7 +46,7 @@ DynamicArray<T>& DynamicArray<T>::operator=(DynamicArray && other)
 }
 
 template<typename T>
-void DynamicArray<T>::PushBack(T &a_toPushBack)
+void DynamicArray<T>::PushBack(T a_toPushBack)
 {
 	if (m_usedMemorySize == m_allocatedMemorySize)
 		Resize();

@@ -1,13 +1,5 @@
 #pragma once
 
-#ifdef STANDARD_EXPORTS
-#	define STANDARD_API __declspec(dllexport)
-#else
-#	define STANDARD_API __declspec(dllimport)
-#endif
-
-#pragma pack(push)
-
 template<typename T>
 class DynamicArray
 {
@@ -15,18 +7,18 @@ public:
 	//--------------------------------
 	// Constructors and Destructor
 	//--------------------------------
-	STANDARD_API DynamicArray();
-	STANDARD_API DynamicArray(const DynamicArray &other);
-	STANDARD_API DynamicArray(DynamicArray && other);
-	STANDARD_API ~DynamicArray();
+	DynamicArray();
+	DynamicArray(const DynamicArray &other);
+	DynamicArray(DynamicArray && other);
+	~DynamicArray();
 
 	//--------------------------------
 	// Assignment operators: 
 	// copy and move assignment 
 	// += -= *= /= %= &= |= ^= <<= >>=
 	//--------------------------------
-	STANDARD_API DynamicArray& operator=(const DynamicArray& other);
-	STANDARD_API DynamicArray& operator=(DynamicArray && other);
+	DynamicArray& operator=(const DynamicArray& other);
+	DynamicArray& operator=(DynamicArray && other);
 	// +=		operator overload
 	// -=		operator overload
 	// *=		operator overload
@@ -81,6 +73,7 @@ public:
 	// < > <= >= == !=
 	//--------------------------------
 	// ==		operator overload
+	//bool operator==(const T &rhs);
 	// !=		operator overload
 	// <		operator overload
 	// >		operator overload
@@ -92,6 +85,7 @@ public:
 	// [] * & -> ->*
 	//--------------------------------
 	// []		operator overload
+	T& operator[](unsigned int &index);
 
 	// ->		operator overload
 	// ->*		operator overload
@@ -115,14 +109,14 @@ public:
 	//--------------------------------
 	// Functions
 	//--------------------------------
-	STANDARD_API void PushBack(T &toPushBack);
-	STANDARD_API void PopBack();
-	STANDARD_API void Clear();
-	STANDARD_API unsigned int Size();
+	void PushBack(T toPushBack);
+	void PopBack();
+	void Clear();
+	unsigned int Size();
 
 private:
 	// Internal functions
-	STANDARD_API void Resize();
+	void Resize();
 
 	// Variables
 	T** m_array;
@@ -130,4 +124,112 @@ private:
 	unsigned int m_usedMemorySize;
 };
 
-#include "DynamicArray.cpp"
+//#include "DynamicArray.cpp"
+
+template <typename T>
+DynamicArray<T>::DynamicArray()
+{
+	m_array = nullptr;
+	m_allocatedMemorySize = 0;
+	m_usedMemorySize = 0;
+}
+
+template<typename T>
+DynamicArray<T>::~DynamicArray()
+{
+	if (m_array != nullptr)
+	{
+		for (unsigned int i = 0; i < m_usedMemorySize; i++)
+		{
+			delete m_array[i];
+			m_array[i] = nullptr;
+		}
+		delete[] m_array;
+		m_array = nullptr;
+	}
+}
+
+template<typename T>
+DynamicArray<T>::DynamicArray(const DynamicArray &other)
+{
+
+}
+
+template<typename T>
+DynamicArray<T>::DynamicArray(DynamicArray && other)
+{
+
+}
+
+template<typename T>
+DynamicArray<T>& DynamicArray<T>::operator=(const DynamicArray& other)
+{
+
+}
+
+template<typename T>
+DynamicArray<T>& DynamicArray<T>::operator=(DynamicArray && other)
+{
+
+}
+
+template<typename T>
+T& DynamicArray<T>::operator[](unsigned int &a_index)
+{
+	return *m_array[a_index];
+}
+
+template<typename T>
+void DynamicArray<T>::PushBack(T a_toPushBack)
+{
+	if (m_usedMemorySize == m_allocatedMemorySize)
+		Resize();
+
+	m_array[m_usedMemorySize] = &a_toPushBack;
+	m_usedMemorySize++;
+}
+
+template<typename T>
+void DynamicArray<T>::PopBack()
+{
+	delete m_array[m_usedMemorySize];
+	m_array = nullptr;
+	m_usedMemorySize--;
+}
+
+template<typename T>
+void DynamicArray<T>::Clear()
+{
+	for (unsigned int i = 0; i < m_usedMemorySize; i++)
+	{
+		delete m_array[i];
+	}
+	m_usedMemorySize = 0;
+	m_allocatedMemorySize = 0;
+}
+
+template<typename T>
+unsigned int DynamicArray<T>::Size()
+{
+	return m_usedMemorySize;
+}
+
+template<typename T>
+void DynamicArray<T>::Resize()
+{
+	if (m_allocatedMemorySize == 0)
+	{
+		m_allocatedMemorySize = 8;
+		m_array = new T*[m_allocatedMemorySize];
+	}
+	else
+	{
+		T** temp = new T*[m_allocatedMemorySize * 2];
+		for (unsigned int i = 0; i < m_allocatedMemorySize; i++)
+		{
+			temp[i] = m_array[i];
+		}
+		m_array = temp;
+		m_allocatedMemorySize *= 2;
+	}
+}
