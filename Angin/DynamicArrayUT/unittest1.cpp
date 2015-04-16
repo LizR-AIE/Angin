@@ -15,8 +15,10 @@ namespace DynamicArrayUT
 			// TODO: Your test code here
 			DynamicArray<int> * da = new DynamicArray<int>();
 			da->PushBack(23);
+			da->PushBack(64);
 			Assert::IsTrue(da->Size() == 1);
-			//Assert::IsTrue(da[0] == 23);
+			int t = (*da)[1];
+			Assert::IsTrue((*da)[0] == 23);
 
 		}
 
