@@ -4,11 +4,6 @@ template<typename T>
 class DynamicArray
 {
 public:
-	T operator[](unsigned int a_index)	
-	{
-		return m_array[a_index];
-	}
-	
 	//--------------------------------
 	// Constructors and Destructor
 	//--------------------------------
@@ -27,6 +22,12 @@ public:
 			m_array = nullptr;
 		}
 	}
+
+	T operator[](unsigned int a_index)
+	{
+		return m_array[a_index];
+	}
+
 	void PushBack(T a_toPushBack)
 	{
 		if (m_usedMemorySize == m_allocatedMemorySize)

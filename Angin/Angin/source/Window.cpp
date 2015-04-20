@@ -3,11 +3,6 @@
 
 Window* Window::m_window = nullptr;
 
-void ErrorCallBack(int error, const char* description)
-{
-	std::cout << "An error has occurred. Error number: " << error << ". " << description << std::endl;
-}
-
 Window::Window()
 {
 	m_sdlWindow = nullptr;
