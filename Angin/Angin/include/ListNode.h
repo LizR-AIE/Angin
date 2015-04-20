@@ -1,10 +1,16 @@
 #pragma
 
+#ifdef ANGIN_EXPORTS
+#	define ANGIN_API __declspec(dllexport)
+#else
+#	define ANGIN_API __declspec(dllimport)
+#endif
+
 class ListNode
 {
 public:
-	ListNode();
-	~ListNode();
+	ANGIN_API ListNode();
+	ANGIN_API ~ListNode();
 
 	int value;
 

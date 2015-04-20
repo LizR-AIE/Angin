@@ -142,7 +142,6 @@
     <ClCompile Include="source\Game.cpp" />
     <ClCompile Include="source\List.cpp" />
     <ClCompile Include="source\ListNode.cpp" />
-    <ClCompile Include="source\ListSentinelNode.cpp" />
     <ClCompile Include="source\Object.cpp" />
     <ClCompile Include="source\Window.cpp" />
   </ItemGroup>
@@ -152,7 +151,6 @@
     <ClInclude Include="include\Game.h" />
     <ClInclude Include="include\List.h" />
     <ClInclude Include="include\ListNode.h" />
-    <ClInclude Include="include\ListSentinelNode.h" />
     <ClInclude Include="include\Object.h" />
     <ClInclude Include="include\Window.h" />
   </ItemGroup>

@@ -1,6 +1,6 @@
 #pragma once
 #include <Game.h>
-
+#include <List.h>
 
 class UITesting : public Game
 {
@@ -18,4 +18,6 @@ protected:
 
 private:
 	UITesting();
+
+	List testList;
 };

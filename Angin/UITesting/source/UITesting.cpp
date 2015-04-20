@@ -23,7 +23,7 @@ void UITesting::Create()
 
 void UITesting::Loop()
 {
-	float deltaTime = SDL_GetTicks();
+	float deltaTime = (float)SDL_GetTicks();
 	Update(deltaTime);
 	Render();
 
