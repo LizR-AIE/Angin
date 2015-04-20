@@ -1,6 +1,7 @@
 #include "Window.h"
 #include <iostream>
 
+
 Window* Window::m_window = nullptr;
 
 Window::Window()
@@ -21,15 +22,31 @@ Window::Window(int a_windowWidth, int a_windowHeight, const char* a_windowName)
 	//glfwSetErrorCallback(ErrorCallBack);
 
 	// Init GLFW and check that init passed
-	if (!SDL_Init( SDL_INIT_VIDEO ) < 0)
+	if (!SDL_Init( SDL_INIT_EVERYTHING ) < 0)
 	{
 		printf("SDL could not initialize! SDL_Error: %s\n", SDL_GetError());
 		return;
 	}
+	/*
+	SDL_GL_SetAttribute(SDL_GL_RED_SIZE, 8);
+	SDL_GL_SetAttribute(SDL_GL_GREEN_SIZE, 8);
+	SDL_GL_SetAttribute(SDL_GL_BLUE_SIZE, 8);
+	SDL_GL_SetAttribute(SDL_GL_ALPHA_SIZE, 8);
 
+	SDL_GL_SetAttribute(SDL_GL_DEPTH_SIZE, 16);
+	SDL_GL_SetAttribute(SDL_GL_BUFFER_SIZE, 32);
+
+	SDL_GL_SetAttribute(SDL_GL_ACCUM_RED_SIZE, 8);
+	SDL_GL_SetAttribute(SDL_GL_ACCUM_GREEN_SIZE, 8);
+	SDL_GL_SetAttribute(SDL_GL_ACCUM_BLUE_SIZE, 8);
+	SDL_GL_SetAttribute(SDL_GL_ACCUM_ALPHA_SIZE, 8);
+
+	SDL_GL_SetAttribute(SDL_GL_MULTISAMPLEBUFFERS, 1);
+	SDL_GL_SetAttribute(SDL_GL_MULTISAMPLESAMPLES, 2);
+	*/
 	// Create the window
 	m_sdlWindow = SDL_CreateWindow(m_windowName, SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, m_windowWidth, m_windowHeight, SDL_WINDOW_SHOWN);
-
+	
 	// Check the window was created successfully
 	if (!m_sdlWindow)
 	{
@@ -43,7 +60,7 @@ Window::Window(int a_windowWidth, int a_windowHeight, const char* a_windowName)
 	m_sdlSurface = SDL_GetWindowSurface(m_sdlWindow);
 
 	//Fill the surface white
-	SDL_FillRect(m_sdlSurface, NULL, SDL_MapRGB(m_sdlSurface->format, 0xFF, 0xFF, 0xFF));
+	//SDL_FillRect(m_sdlSurface, NULL, SDL_MapRGB(m_sdlSurface->format, 0x99, 0x99, 0x99));
 
 	//Update the surface
 	SDL_UpdateWindowSurface(m_sdlWindow);

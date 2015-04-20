@@ -1,6 +1,6 @@
 #pragma once
 #include <Game.h>
-#include <List.h>
+#include <SDL.h>
 
 class UITesting : public Game
 {
@@ -19,5 +19,5 @@ protected:
 private:
 	UITesting();
 
-	List testList;
+	SDL_Surface* helloWorld;
 };

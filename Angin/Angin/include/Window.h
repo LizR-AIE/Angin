@@ -20,6 +20,7 @@ public:
 	ANGIN_API inline unsigned int GetWindowHeight() { return m_windowHeight; }
 
 	ANGIN_API inline SDL_Window * GetWindow() { return m_sdlWindow; }
+	ANGIN_API inline SDL_Surface* GetSurface(){ return m_sdlSurface; }
 
 	ANGIN_API ~Window();
 
