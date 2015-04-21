@@ -1,7 +1,6 @@
 #include "Window.h"
 #include <iostream>
 
-
 Window* Window::m_window = nullptr;
 
 Window::Window()
@@ -21,7 +20,7 @@ Window::Window(int a_windowWidth, int a_windowHeight, const char* a_windowName)
 
 	//glfwSetErrorCallback(ErrorCallBack);
 
-	// Init GLFW and check that init passed
+	// Init SDL2 and check that init passed
 	if (!SDL_Init( SDL_INIT_EVERYTHING ) < 0)
 	{
 		printf("SDL could not initialize! SDL_Error: %s\n", SDL_GetError());
@@ -44,8 +43,20 @@ Window::Window(int a_windowWidth, int a_windowHeight, const char* a_windowName)
 	SDL_GL_SetAttribute(SDL_GL_MULTISAMPLEBUFFERS, 1);
 	SDL_GL_SetAttribute(SDL_GL_MULTISAMPLESAMPLES, 2);
 	*/
+	/*
+	SDL_WINDOW_FULLSCREEN			fullscreen window
+	SDL_WINDOW_FULLSCREEN_DESKTOP	fullscreen window at the current desktop resolution
+	SDL_WINDOW_OPENGL				window usable with OpenGL context
+	SDL_WINDOW_HIDDEN				window is not visible
+	SDL_WINDOW_BORDERLESS			no window decoration
+	SDL_WINDOW_RESIZABLE			window can be resized
+	SDL_WINDOW_MINIMIZED			window is minimized
+	SDL_WINDOW_MAXIMIZED			window is maximized
+	SDL_WINDOW_INPUT_GRABBED		window has grabbed input focus
+	SDL_WINDOW_ALLOW_HIGHDPI		window should be created in high-DPI mode if supported (>= SDL 2.0.1)
+	*/
 	// Create the window
-	m_sdlWindow = SDL_CreateWindow(m_windowName, SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, m_windowWidth, m_windowHeight, SDL_WINDOW_SHOWN);
+	m_sdlWindow = SDL_CreateWindow(m_windowName, SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, m_windowWidth, m_windowHeight, SDL_WINDOW_OPENGL);
 	
 	// Check the window was created successfully
 	if (!m_sdlWindow)
@@ -56,14 +67,11 @@ Window::Window(int a_windowWidth, int a_windowHeight, const char* a_windowName)
 		return;
 	}
 
-	//Get window surface
+	// Getting(creating) the window context
+	m_sdlGLContext = SDL_GL_CreateContext(m_sdlWindow);
+
+	// Get window surface
 	m_sdlSurface = SDL_GetWindowSurface(m_sdlWindow);
-
-	//Fill the surface white
-	//SDL_FillRect(m_sdlSurface, NULL, SDL_MapRGB(m_sdlSurface->format, 0x99, 0x99, 0x99));
-
-	//Update the surface
-	SDL_UpdateWindowSurface(m_sdlWindow);
 }
 
 Window::~Window()

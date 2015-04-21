@@ -1,40 +1,20 @@
 #include "UITesting.h"
 #include <iostream>
-#include <SDL.h>
 #include <Window.h>
+#include <SDL.h>
+#include <SDL_opengl.h>
 
 Game * Game::m_game = nullptr;
 
 UITesting::UITesting()
 {
-	bool success = true;
-
-	SDL_Surface* hWorld = SDL_LoadBMP("helloworld.bmp");
-	if (hWorld == nullptr)
-	{
-		printf("Unable to load image %s! SDL Error: %s\n", "helloworld.bmp", SDL_GetError());
-		success = false;
-	}
-	printf("Loaded Hello World BMP: %s", success ? "true" : "false");
 	
-	helloWorld = SDL_ConvertSurface(hWorld, Window::Get()->GetSurface()->format, NULL);
-	if (helloWorld == nullptr)
-	{
-		printf("Unable to optimize image %s! SDL Error: %s\n", "helloworld.bmp", SDL_GetError());
-	}
-	SDL_FreeSurface(hWorld);
-	//SDL_BlitSurface(helloWorld, nullptr, Window::Get()->GetSurface(), nullptr);
-	SDL_Rect stretchRect;
-	stretchRect.x = 0;
-	stretchRect.y = 0;
-	stretchRect.w = Window::Get()->GetWindowWidth();// SCREEN_WIDTH;
-	stretchRect.h = Window::Get()->GetWindowHeight();//SCREEN_HEIGHT;
-	SDL_BlitScaled(helloWorld, NULL, Window::Get()->GetSurface(), &stretchRect);
 }
 
 UITesting::~UITesting()
 {
 	SDL_FreeSurface(helloWorld);
+	SDL_GL_DeleteContext(Window::Get()->GetGLContext());
 }
 
 void UITesting::Create()
@@ -46,10 +26,15 @@ void UITesting::Create()
 void UITesting::Loop()
 {
 	float deltaTime = (float)SDL_GetTicks();
+	
 	Update(deltaTime);
-	Render();
 
-	SDL_UpdateWindowSurface(Window::Get()->GetWindow());
+	glClearColor(1, 1, 1, 1);
+	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT | GL_STENCIL_BUFFER_BIT);
+	
+	Render();
+	
+	SDL_GL_SwapWindow(Window::Get()->GetWindow());
 }
 
 void UITesting::Update(float a_deltaTime)
