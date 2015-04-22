@@ -12,42 +12,45 @@
 int main(int argc, char* args[])
 {
 	{
-		bool gQuit = false;
-		SDL_Event e;
+		UITesting game;
+		game.Run();
 
-		Window::Create(1280, 720, "UITesting");
-
-		UITesting::Create();
-
-		while (!gQuit)
-		{
-			// Poll Events
-			while (SDL_PollEvent(&e) != 0)
-			{
-				if (e.type == SDL_QUIT)
-				{
-					gQuit = true;
-				}
-				else if (e.type == SDL_KEYDOWN)
-				{
-					switch (e.key.keysym.sym)
-					{
-						case SDLK_ESCAPE:
-						{
-							gQuit = true;
-							break;
-						}
-					}
-				}
-			}
-
-			// Call Game Loop
-			UITesting::Get()->Loop();
-		}
-
-		UITesting::Destroy();
-
-		Window::Destroy();
+		//bool gQuit = false;
+		//SDL_Event e;
+		//
+		//Window::Create(1280, 720, "UITesting");
+		//
+		//UITesting::Create();
+		//
+		//while (!gQuit)
+		//{
+		//	// Poll Events
+		//	while (SDL_PollEvent(&e) != 0)
+		//	{
+		//		if (e.type == SDL_QUIT)
+		//		{
+		//			gQuit = true;
+		//		}
+		//		else if (e.type == SDL_KEYDOWN)
+		//		{
+		//			switch (e.key.keysym.sym)
+		//			{
+		//				case SDLK_ESCAPE:
+		//				{
+		//					gQuit = true;
+		//					break;
+		//				}
+		//			}
+		//		}
+		//	}
+		//
+		//	// Call Game Loop
+		//	UITesting::Get()->Loop();
+		//}
+		//
+		//UITesting::Destroy();
+		//
+		//Window::Destroy();
 	}
 
 #ifdef _DEBUG

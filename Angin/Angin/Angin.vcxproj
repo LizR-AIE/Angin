@@ -140,8 +140,7 @@
   <ItemGroup>
     <ClCompile Include="source\FlyCamera.cpp" />
     <ClCompile Include="source\Game.cpp" />
-    <ClCompile Include="source\List.cpp" />
-    <ClCompile Include="source\ListNode.cpp" />
+    <ClCompile Include="source\GameManager.cpp" />
     <ClCompile Include="source\Object.cpp" />
     <ClCompile Include="source\Window.cpp" />
   </ItemGroup>
@@ -149,8 +148,7 @@
     <ClInclude Include="include\Camera.h" />
     <ClInclude Include="include\FlyCamera.h" />
     <ClInclude Include="include\Game.h" />
-    <ClInclude Include="include\List.h" />
-    <ClInclude Include="include\ListNode.h" />
+    <ClInclude Include="include\GameManager.h" />
     <ClInclude Include="include\Object.h" />
     <ClInclude Include="include\Window.h" />
   </ItemGroup>

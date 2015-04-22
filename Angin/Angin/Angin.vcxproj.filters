@@ -27,10 +27,7 @@
     <ClCompile Include="source\FlyCamera.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="source\List.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="source\ListNode.cpp">
+    <ClCompile Include="source\GameManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -50,10 +47,7 @@
     <ClInclude Include="include\FlyCamera.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\List.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="include\ListNode.h">
+    <ClInclude Include="include\GameManager.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

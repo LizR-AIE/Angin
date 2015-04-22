@@ -1,23 +1,15 @@
 #pragma once
 #include <Game.h>
+#include <GameManager.h>
 #include <SDL.h>
 
 class UITesting : public Game
 {
 public:
-	static	void Create();
-	virtual void Loop();
-	static	void Destroy();
-
-	static UITesting * Get();
-
-	virtual ~UITesting();
-protected:
-	virtual void Update(float DeltaTime);
-	virtual void Render();
-
-private:
 	UITesting();
+	virtual ~UITesting();
+	virtual void Run();
 
-	SDL_Surface* helloWorld;
+protected:
+	GameManager gameManager;
 };
