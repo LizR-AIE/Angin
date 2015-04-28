@@ -1,6 +1,5 @@
 #pragma once
 #include <Game.h>
-#include <GameManager.h>
 #include <SDL.h>
 
 class UITesting : public Game
@@ -8,8 +7,14 @@ class UITesting : public Game
 public:
 	UITesting();
 	virtual ~UITesting();
+	
+	static void Create();
+	static void Destroy();
+	static UITesting * Get();
+
 	virtual void Run();
 
 protected:
-	GameManager gameManager;
+	virtual void Update(float deltaTime);
+	virtual void Render();
 };

@@ -36,6 +36,7 @@ private:
 	char *			m_windowName;
 
 	SDL_Window *	m_sdlWindow;
+	SDL_Renderer*	m_sdlRenderer;
 	SDL_Surface *	m_sdlSurface;
 	SDL_GLContext	m_sdlGLContext;
 

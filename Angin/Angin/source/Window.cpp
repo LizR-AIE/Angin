@@ -67,6 +67,8 @@ Window::Window(int a_windowWidth, int a_windowHeight, const char* a_windowName)
 		return;
 	}
 
+	m_sdlRenderer = SDL_CreateRenderer(m_sdlWindow, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
+
 	// Getting(creating) the window context
 	m_sdlGLContext = SDL_GL_CreateContext(m_sdlWindow);
 
@@ -76,6 +78,11 @@ Window::Window(int a_windowWidth, int a_windowHeight, const char* a_windowName)
 
 Window::~Window()
 {
+	if (m_sdlGLContext)
+	{
+		SDL_GL_DeleteContext(Window::Get()->GetGLContext());
+	}
+
 	if (m_sdlWindow)
 	{
 		SDL_DestroyWindow(m_sdlWindow);
