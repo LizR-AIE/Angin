@@ -29,6 +29,9 @@ void UITesting::Run()
 
 	while (!gQuit)
 	{
+		UpdateDeltaTime();
+
+		// PollEvents();
 		// Poll Events
 		while (SDL_PollEvent(&e) != 0)
 		{
@@ -48,14 +51,8 @@ void UITesting::Run()
 				}
 			}
 		}
-
-		UpdateDeltaTime();
-		
-		//system("cls");
-		//std::cout << "Last Total Ticks: " << lastTotalTicks << std::endl;
-		//std::cout << "This Total Ticks: " << thisTotalTicks << std::endl;
-		std::cout << "DeltaTime: " << deltaTime << std::endl;
-
+				
+				
 		Update(deltaTime);
 
 		glClearColor(1, 0, 1, 1);
