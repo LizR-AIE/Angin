@@ -4,9 +4,9 @@
 #include <SDL.h>
 
 #ifdef _DEBUG
-#define _CRTDBG_MAP_ALLOC
-#include <stdlib.h>
-#include <crtdbg.h>
+	#define _CRTDBG_MAP_ALLOC
+	#include <stdlib.h>
+	#include <crtdbg.h>
 #endif
 
 int main(int argc, char *argv[])
@@ -21,6 +21,8 @@ int main(int argc, char *argv[])
 
 		while (!gQuit)
 		{
+			glClearColor(0.25f, 0.25f, 0.25f, 1.0f);
+			glEnable(GL_DEPTH_TEST);
 			// Poll Events
 			while (SDL_PollEvent(&e) != 0)
 			{

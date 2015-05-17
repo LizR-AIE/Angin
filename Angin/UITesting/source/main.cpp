@@ -1,6 +1,4 @@
 #include <Window.h>
-#include <SDL.h>
-
 #include "UITesting.h"
 
 #ifdef _DEBUG

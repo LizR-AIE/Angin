@@ -1,7 +1,6 @@
 #include "UITesting.h"
 #include <iostream>
 #include <Window.h>
-#include <SDL.h>
 #include <SDL_opengl.h>
 
 Game * Game::m_game = nullptr;
@@ -27,8 +26,13 @@ void UITesting::Run()
 	bool gQuit = false;
 	SDL_Event e;
 
+	glClearColor(1, 0, 1, 1);
+	glEnable(GL_DEPTH_TEST);
+	glUseProgram(0);
 	while (!gQuit)
 	{
+		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT | GL_STENCIL_BUFFER_BIT);
+
 		UpdateDeltaTime();
 
 		// PollEvents();
@@ -50,13 +54,9 @@ void UITesting::Run()
 					}
 				}
 			}
-		}
-				
-				
+		}				
+		
 		Update(deltaTime);
-
-		glClearColor(1, 0, 1, 1);
-		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT | GL_STENCIL_BUFFER_BIT);
 
 		Render();
 

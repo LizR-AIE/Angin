@@ -78,13 +78,13 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;ANGIN_EXPORTS;GLM_FORCE_PURE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>$(ProjectDir)include;$(SolutionDir)\3rdParty\glm\;$(SolutionDir)3rdParty\SDL2\include\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)include;$(SolutionDir)\3rdParty\glm\;$(SolutionDir)\3rdParty\SDL2\include\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>$(SolutionDir)3rdParty\SDL2\lib\x86\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>SDL2.lib;SDL2main.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>SDL2.lib;SDL2main.lib;OpenGL32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -142,6 +142,7 @@
   <ItemGroup>
     <ClCompile Include="source\FlyCamera.cpp" />
     <ClCompile Include="source\Game.cpp" />
+    <ClCompile Include="source\Gizmos.cpp" />
     <ClCompile Include="source\Object.cpp" />
     <ClCompile Include="source\Window.cpp" />
   </ItemGroup>
@@ -149,6 +150,7 @@
     <ClInclude Include="include\Camera.h" />
     <ClInclude Include="include\FlyCamera.h" />
     <ClInclude Include="include\Game.h" />
+    <ClInclude Include="include\Gizmos.h" />
     <ClInclude Include="include\Object.h" />
     <ClInclude Include="include\Window.h" />
   </ItemGroup>
