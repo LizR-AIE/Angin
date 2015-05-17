@@ -1,11 +1,12 @@
 #include <Gizmos.h>
-//#include <gl_core_4_4.h>
 #include <SDL.h>
 #include <SDL_opengl.h>
 
 #define GLM_SWIZZLE
 #include <glm/glm.hpp>
 #include <glm/ext.hpp>
+
+static PFNGLCREATESHADERPROC glCreateShader;
 
 Gizmos* Gizmos::sm_singleton = nullptr;
 
@@ -26,6 +27,8 @@ Gizmos::Gizmos(unsigned int a_maxLines, unsigned int a_maxTris,
 	m_2DtriCount(0),
 	m_2Dtris(new GizmoTri[a_max2DTris])
 {
+	glCreateShader = (PFNGLCREATESHADERPROC)SDL_GL_GetProcAddress("glCreateShader");
+
 	// create shaders
 	const char* vsSource = "#version 150\n \
 					 in vec4 Position; \
