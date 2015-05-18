@@ -153,6 +153,13 @@
     <ClInclude Include="include\Gizmos.h" />
     <ClInclude Include="include\Object.h" />
     <ClInclude Include="include\Window.h" />
+    <ClInclude Include="resource.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Angin.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="icon1.ico" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

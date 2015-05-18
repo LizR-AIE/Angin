@@ -2,6 +2,7 @@
 #include <Window.h>
 #include "Space.h"
 #include <SDL.h>
+#include <SDL_opengl.h>
 
 #ifdef _DEBUG
 	#define _CRTDBG_MAP_ALLOC

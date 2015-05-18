@@ -1,6 +1,6 @@
 #pragma once
 #include <Game.h>
-
+#include "glm\glm.hpp"
 class UITesting : public Game
 {
 public:
@@ -16,4 +16,9 @@ public:
 protected:
 	virtual void Update(float deltaTime);
 	virtual void Render();
+
+	glm::mat4 orthoProjection;
+	glm::mat4 orthoView;
+	glm::mat4 perspProjection;
+	glm::mat4 perspView;
 };
