@@ -140,6 +140,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="source\InputHandler.cpp" />
     <ClCompile Include="source\FlyCamera.cpp" />
     <ClCompile Include="source\Game.cpp" />
     <ClCompile Include="source\Gizmos.cpp" />
@@ -153,13 +154,7 @@
     <ClInclude Include="include\Gizmos.h" />
     <ClInclude Include="include\Object.h" />
     <ClInclude Include="include\Window.h" />
-    <ClInclude Include="resource.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <ResourceCompile Include="Angin.rc" />
-  </ItemGroup>
-  <ItemGroup>
-    <Image Include="icon1.ico" />
+    <ClInclude Include="include\InputHandler.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

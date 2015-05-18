@@ -13,10 +13,10 @@ public:
 		m_projection		= glm::mat4();
 		m_projectionView	= glm::mat4();
 
-		m_fieldOfView = 0.f;
-		m_aspectRatio = 0.f;
-		m_near = 0.f;
-		m_far = 0.f;
+		m_fieldOfView	= 0.f;
+		m_aspectRatio	= 0.f;
+		m_near			= 0.f;
+		m_far			= 0.f;
 	}
 	~Camera(){}
 
@@ -25,10 +25,10 @@ public:
 	//void setPerspective(float fieldOfView, float aspectRatio, float near, float far)
 	void setPerspective(float fieldOfView /*= glm::pi<float>() * 0.25f*/, float aspectRatio = (16.f / 9.f), float near = 0.1f, float far = 1000.f)
 	{
-		m_fieldOfView = fieldOfView;
-		m_aspectRatio = aspectRatio;
-		m_near = near;
-		m_far = far;
+		m_fieldOfView	= fieldOfView;
+		m_aspectRatio	= aspectRatio;
+		m_near			= near;
+		m_far			= far;
 
 		m_projection = glm::perspective(m_fieldOfView, m_aspectRatio, m_near, m_far);
 	}

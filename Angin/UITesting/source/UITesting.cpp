@@ -58,28 +58,29 @@ void UITesting::Run()
 						gQuit = true;
 						break;
 					}
+					default:
+					{
+						break;
+					}
 				}
 			}
 		}				
 		Gizmos::clear();
 		
 		Update(deltaTime);
-
 		Render();
-		
+				
+		Gizmos::draw(perspProjection, perspView);
 		Gizmos::draw2D(orthoProjection * orthoView);
-		//Gizmos::draw(perspProjection, perspView);
-		
+
 		SDL_GL_SwapWindow(Window::Get()->GetWindow());
 	}
 }
 
 void UITesting::Update(float a_deltaTime)
 {
-	//Gizmos::add2DCircle(glm::vec2(5.f, 5.f), 2.0f, 8, glm::vec4(1, 0, 1, 1));
-	Gizmos::add2DAABBFilled(glm::vec2(0, 0), glm::vec2(50, 50), glm::vec4(1, 0, 1, 1));
-	//Gizmos::addAABBFilled()
-	//Gizmos::addSphere(glm::vec3(0, 0, 0), 1.0f, 32, 32, glm::vec4(1, 1, 1, 1));
+	Gizmos::add2DAABBFilled(glm::vec2(580, 260), glm::vec2(50, 50), glm::vec4(1, 0, 1, 1));
+	Gizmos::addSphere(glm::vec3(0, 0, 0), 1.0f, 32, 32, glm::vec4(1, 1, 1, 1));
 }
 
 void UITesting::Render()
@@ -94,7 +95,8 @@ void UITesting::Render()
 		Gizmos::addLine(glm::vec3(10, 0, -10 + i),
 			glm::vec3(-10, 0, -10 + i),
 			i == 10 ? white : black);
-	}
+	}
+
 }
 
 void UITesting::Destroy()

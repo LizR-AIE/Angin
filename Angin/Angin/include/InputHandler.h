@@ -7,40 +7,32 @@
 #endif
 
 #include <SDL.h>
+#include <SDL_scancode.h>
 
-
-class Game
+class InputHandler
 {
+public:
 	//--------------------------------
 	// Singleton Related
 	//--------------------------------
-public:
 	ANGIN_API static void Create();
 	ANGIN_API static void Destroy();
-	ANGIN_API inline static Game * Get(){ return m_game; }
+	ANGIN_API inline static InputHandler * Get(){ return m_inputHandler; }
 
-protected:
+private:
 	// Call Create instead
-	ANGIN_API Game();
+	ANGIN_API InputHandler();
 	// Singleton instance
-	static Game * m_game;
+	static InputHandler * m_inputHandler;
 
 	//--------------------------------
 	// Instance Related
 	//--------------------------------
 public:
-	ANGIN_API virtual ~Game();
-	ANGIN_API virtual void Run();
-	
+	ANGIN_API virtual ~InputHandler();
+
 protected:
-	ANGIN_API void PollEvents();
-	// Call this only once per frame
-	ANGIN_API void UpdateDeltaTime();
-
-	float deltaTime;
-
-private:
-	Uint32 thisTotalTicks;
-	Uint32 lastTotalTicks;
 	
+
 };
+
