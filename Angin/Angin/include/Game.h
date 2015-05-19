@@ -31,14 +31,16 @@ protected:
 public:
 	ANGIN_API virtual ~Game();
 	ANGIN_API virtual void Run();
-	
+	ANGIN_API virtual void Update(float deltaTime){};
+	ANGIN_API virtual void Render(){};
+
 protected:
 	ANGIN_API void PollEvents();
 	// Call this only once per frame
 	ANGIN_API void UpdateDeltaTime();
 
 	float deltaTime;
-
+	
 private:
 	Uint32 thisTotalTicks;
 	Uint32 lastTotalTicks;

@@ -1,16 +1,16 @@
-#include "FlyCamera.h"
+#include "FlyCamera3D.h"
 
-FlyCamera::FlyCamera()
+FlyCamera3D::FlyCamera3D()
 {
 
 }
 
-FlyCamera::~FlyCamera()
+FlyCamera3D::~FlyCamera3D()
 {
 	
 }
 
-void FlyCamera::update(float a_deltaTime)
+void FlyCamera3D::update(float a_deltaTime)
 {
 
 }

@@ -1,6 +1,10 @@
 #pragma once
 #include <Game.h>
+
 #include "glm\glm.hpp"
+
+#include <Camera3D.h>
+
 class UITesting : public Game
 {
 public:
@@ -10,9 +14,7 @@ public:
 	static void Create();
 	static void Destroy();
 	static UITesting * Get();
-
-	virtual void Run();
-
+	
 protected:
 	virtual void Update(float deltaTime);
 	virtual void Render();
@@ -21,4 +23,6 @@ protected:
 	glm::mat4 orthoView;
 	glm::mat4 perspProjection;
 	glm::mat4 perspView;
+
+	Camera3D* camera;
 };

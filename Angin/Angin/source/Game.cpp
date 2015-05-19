@@ -2,35 +2,69 @@
 Game * Game::m_game = nullptr;
 
 #include <SDL.h>
+#include "InputHandler.h"
+#include <SDL_opengl.h>
+#include <Gizmos.h>
+#include "glm\ext.hpp"
+#include "Window.h"
 
 Game::Game()
 {
-	
+	InputHandler::Create();
 }
 
 Game::~Game()
 {
-	
-}
-
-void Game::Create()
-{
-	if (m_game == nullptr)
-		m_game = new Game();
-}
-
-void Game::Destroy()
-{
-	if (m_game != nullptr) 
-	{
-		delete m_game;
-		m_game = nullptr;
-	}
+	InputHandler::Destroy();
 }
 
 void Game::Run()
 {
+	bool gQuit = false;
+	SDL_Event e;
 
+	glClearColor(0.25f, 0.25f, 0.25f, 1);
+	glEnable(GL_DEPTH_TEST);
+
+	while (!gQuit)
+	{
+		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT | GL_STENCIL_BUFFER_BIT);
+
+		UpdateDeltaTime();
+
+		// PollEvents();
+		// Poll Events
+		while (SDL_PollEvent(&e) != 0)
+		{
+			if (e.type == SDL_QUIT)
+			{
+				gQuit = true;
+			}
+			else if (e.type == SDL_KEYDOWN)
+			{
+				switch (e.key.keysym.sym)
+				{
+				case SDLK_ESCAPE:
+				{
+									gQuit = true;
+									break;
+				}
+				default:
+				{
+						   break;
+				}
+				}
+			}
+		}
+		Gizmos::clear();
+
+		Update(deltaTime);
+		Render();
+
+		
+
+		SDL_GL_SwapWindow(Window::Get()->GetWindow());
+	}
 }
 
 void Game::PollEvents()
