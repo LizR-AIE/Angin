@@ -15,10 +15,10 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="source\String.h">
+    <ClInclude Include="include\DynamicArray.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="source\DynamicArray.h">
+    <ClInclude Include="include\String.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
