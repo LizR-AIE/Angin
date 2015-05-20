@@ -2,10 +2,11 @@
 Game * Game::m_game = nullptr;
 
 #include <SDL.h>
-#include "InputHandler.h"
 #include <SDL_opengl.h>
-#include <Gizmos.h>
 #include "glm\ext.hpp"
+
+#include "Gizmos.h"
+#include "InputHandler.h"
 #include "Window.h"
 
 Game::Game()
@@ -61,8 +62,6 @@ void Game::Run()
 		Update(deltaTime);
 		Render();
 
-		
-
 		SDL_GL_SwapWindow(Window::Get()->GetWindow());
 	}
 }
@@ -82,7 +81,7 @@ void Game::PollEvents()
 				
 			}
 			break;
-#pragma endregion
+			#pragma endregion
 
 			#pragma region SDL_APP_DIDENTERFOREGROUND
 			case SDL_EventType::SDL_APP_DIDENTERFOREGROUND:
@@ -90,7 +89,7 @@ void Game::PollEvents()
 				
 			}
 			break;
-#pragma endregion
+			#pragma endregion
 			case SDL_EventType::SDL_APP_LOWMEMORY:
 			{
 

@@ -52,44 +52,44 @@ Gizmos::Gizmos(unsigned int a_maxLines, unsigned int a_maxTris,
 		m_2Dtris(new GizmoTri[a_max2DTris])
 {
 	
-	glCreateShader = (PFNGLCREATESHADERPROC)SDL_GL_GetProcAddress("glCreateShader");
-	glShaderSource = (PFNGLSHADERSOURCEPROC)SDL_GL_GetProcAddress("glShaderSource");
-	glCompileShader = (PFNGLCOMPILESHADERPROC)SDL_GL_GetProcAddress("glCompileShader");
-	glCreateProgram = (PFNGLCREATEPROGRAMPROC)SDL_GL_GetProcAddress("glCreateProgram");
-	glAttachShader = (PFNGLATTACHSHADERPROC)SDL_GL_GetProcAddress("glAttachShader");
-	glBindAttribLocation = (PFNGLBINDATTRIBLOCATIONPROC)SDL_GL_GetProcAddress("glBindAttribLocation");
-	glLinkProgram = (PFNGLLINKPROGRAMPROC)SDL_GL_GetProcAddress("glLinkProgram");
-	glGetProgramiv = (PFNGLGETPROGRAMIVPROC)SDL_GL_GetProcAddress("glGetProgramiv");
-	glGetShaderiv = (PFNGLGETSHADERIVPROC)SDL_GL_GetProcAddress("glGetShaderiv");
-	glGetShaderInfoLog = (PFNGLGETSHADERINFOLOGPROC)SDL_GL_GetProcAddress("glGetShaderInfoLog");
-	glDeleteShader = (PFNGLDELETESHADERPROC)SDL_GL_GetProcAddress("glDeleteShader");
-	glGenBuffers = (PFNGLGENBUFFERSPROC)SDL_GL_GetProcAddress("glGenBuffers");
-	glBindBuffer = (PFNGLBINDBUFFERPROC)SDL_GL_GetProcAddress("glBindBuffer");
-	glBufferData = (PFNGLBUFFERDATAPROC)SDL_GL_GetProcAddress("glBufferData");
-	glGenVertexArrays = (PFNGLGENVERTEXARRAYSPROC)SDL_GL_GetProcAddress("glGenVertexArrays");
-	glBindVertexArray = (PFNGLBINDVERTEXARRAYPROC)SDL_GL_GetProcAddress("glBindVertexArray");
-	glEnableVertexAttribArray = (PFNGLENABLEVERTEXATTRIBARRAYPROC)SDL_GL_GetProcAddress("glEnableVertexAttribArray");
-	glVertexAttribPointer = (PFNGLVERTEXATTRIBPOINTERPROC)SDL_GL_GetProcAddress("glVertexAttribPointer");
-	glDeleteBuffers = (PFNGLDELETEBUFFERSPROC)SDL_GL_GetProcAddress("glDeleteBuffers");
-	glDeleteVertexArrays = (PFNGLDELETEVERTEXARRAYSPROC)SDL_GL_GetProcAddress("glDeleteVertexArrays");
-	glDeleteProgram = (PFNGLDELETEPROGRAMPROC)SDL_GL_GetProcAddress("glDeleteProgram");
-	glUseProgram = (PFNGLUSEPROGRAMPROC)SDL_GL_GetProcAddress("glUseProgram");
-	glGetUniformLocation = (PFNGLGETUNIFORMLOCATIONPROC)SDL_GL_GetProcAddress("glGetUniformLocation");
-	glUniformMatrix4fv = (PFNGLUNIFORMMATRIX4FVPROC)SDL_GL_GetProcAddress("glUniformMatrix4fv");
-	glBufferSubData = (PFNGLBUFFERSUBDATAPROC)SDL_GL_GetProcAddress("glBufferSubData");
+	glCreateShader				= (PFNGLCREATESHADERPROC)			SDL_GL_GetProcAddress("glCreateShader"				);
+	glShaderSource				= (PFNGLSHADERSOURCEPROC)			SDL_GL_GetProcAddress("glShaderSource"				);
+	glCompileShader				= (PFNGLCOMPILESHADERPROC)			SDL_GL_GetProcAddress("glCompileShader"				);
+	glCreateProgram				= (PFNGLCREATEPROGRAMPROC)			SDL_GL_GetProcAddress("glCreateProgram"				);
+	glAttachShader				= (PFNGLATTACHSHADERPROC)			SDL_GL_GetProcAddress("glAttachShader"				);
+	glBindAttribLocation		= (PFNGLBINDATTRIBLOCATIONPROC)		SDL_GL_GetProcAddress("glBindAttribLocation"		);
+	glLinkProgram				= (PFNGLLINKPROGRAMPROC)			SDL_GL_GetProcAddress("glLinkProgram"				);
+	glGetProgramiv				= (PFNGLGETPROGRAMIVPROC)			SDL_GL_GetProcAddress("glGetProgramiv"				);
+	glGetShaderiv				= (PFNGLGETSHADERIVPROC)			SDL_GL_GetProcAddress("glGetShaderiv"				);
+	glGetShaderInfoLog			= (PFNGLGETSHADERINFOLOGPROC)		SDL_GL_GetProcAddress("glGetShaderInfoLog"			);
+	glDeleteShader				= (PFNGLDELETESHADERPROC)			SDL_GL_GetProcAddress("glDeleteShader"				);
+	glGenBuffers				= (PFNGLGENBUFFERSPROC)				SDL_GL_GetProcAddress("glGenBuffers"				);
+	glBindBuffer				= (PFNGLBINDBUFFERPROC)				SDL_GL_GetProcAddress("glBindBuffer"				);
+	glBufferData				= (PFNGLBUFFERDATAPROC)				SDL_GL_GetProcAddress("glBufferData"				);
+	glGenVertexArrays			= (PFNGLGENVERTEXARRAYSPROC)		SDL_GL_GetProcAddress("glGenVertexArrays"			);
+	glBindVertexArray			= (PFNGLBINDVERTEXARRAYPROC)		SDL_GL_GetProcAddress("glBindVertexArray"			);
+	glEnableVertexAttribArray	= (PFNGLENABLEVERTEXATTRIBARRAYPROC)SDL_GL_GetProcAddress("glEnableVertexAttribArray"	);
+	glVertexAttribPointer		= (PFNGLVERTEXATTRIBPOINTERPROC)	SDL_GL_GetProcAddress("glVertexAttribPointer"		);
+	glDeleteBuffers				= (PFNGLDELETEBUFFERSPROC)			SDL_GL_GetProcAddress("glDeleteBuffers"				);
+	glDeleteVertexArrays		= (PFNGLDELETEVERTEXARRAYSPROC)		SDL_GL_GetProcAddress("glDeleteVertexArrays"		);
+	glDeleteProgram				= (PFNGLDELETEPROGRAMPROC)			SDL_GL_GetProcAddress("glDeleteProgram"				);
+	glUseProgram				= (PFNGLUSEPROGRAMPROC)				SDL_GL_GetProcAddress("glUseProgram"				);
+	glGetUniformLocation		= (PFNGLGETUNIFORMLOCATIONPROC)		SDL_GL_GetProcAddress("glGetUniformLocation"		);
+	glUniformMatrix4fv			= (PFNGLUNIFORMMATRIX4FVPROC)		SDL_GL_GetProcAddress("glUniformMatrix4fv"			);
+	glBufferSubData				= (PFNGLBUFFERSUBDATAPROC)			SDL_GL_GetProcAddress("glBufferSubData"				);
 
 	// create shaders
 	const char* vsSource = "#version 150\n \
-					 in vec4 Position; \
-					 in vec4 Colour; \
-					 out vec4 vColour; \
-					 uniform mat4 ProjectionView; \
-					 void main() { vColour = Colour; gl_Position = ProjectionView * Position; }";
+							in vec4 Position; \
+							in vec4 Colour; \
+							out vec4 vColour; \
+							uniform mat4 ProjectionView; \
+							void main() { vColour = Colour; gl_Position = ProjectionView * Position; }";
 
 	const char* fsSource = "#version 150\n \
-					 in vec4 vColour; \
-                     out vec4 FragColor; \
-					 void main()	{ FragColor = vColour; }";
+							in vec4 vColour; \
+							out vec4 FragColor; \
+							void main()	{ FragColor = vColour; }";
     
     
 	unsigned int vs = glCreateShader(GL_VERTEX_SHADER);
