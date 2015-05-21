@@ -265,6 +265,20 @@ enum class KEY : SDL_Keycode
 	KEY_SLEEP				= SDLK_SLEEP 
 };
 
+enum class MB
+{
+	MB_LEFT		= SDL_BUTTON_LEFT		,
+	MB_MIDDLE	= SDL_BUTTON_MIDDLE	,
+	MB_RIGHT	= SDL_BUTTON_RIGHT		,
+	MB_X1		= SDL_BUTTON_X1			,
+	MB_X2		= SDL_BUTTON_X2			,
+	MB_LMASK	= SDL_BUTTON_LMASK		,
+	MB_MMASK	= SDL_BUTTON_MMASK		,
+	MB_RMASK	= SDL_BUTTON_RMASK		,
+	MB_X1MASK	= SDL_BUTTON_X1MASK	,
+	MB_X2MASK	= SDL_BUTTON_X2MASK	,
+};
+
 class InputHandler
 {
 public:
@@ -297,6 +311,7 @@ private:
 public:
 	ANGIN_API virtual ~InputHandler();
 	std::map<KEY, bool> keyDown;
+	std::map<MB, bool> mouseDown;
 protected:
 	
 

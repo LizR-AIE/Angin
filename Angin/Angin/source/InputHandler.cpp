@@ -241,6 +241,16 @@ InputHandler::InputHandler()
 	keyDown[KEY::KEY_EJECT] = false;
 	keyDown[KEY::KEY_SLEEP] = false;
 
+	mouseDown[MB::MB_LEFT] = false;
+	mouseDown[MB::MB_MIDDLE] = false;
+	mouseDown[MB::MB_RIGHT] = false;
+	mouseDown[MB::MB_X1] = false;
+	mouseDown[MB::MB_X2] = false;
+	mouseDown[MB::MB_LMASK] = false;
+	mouseDown[MB::MB_MMASK] = false;
+	mouseDown[MB::MB_RMASK] = false;
+	mouseDown[MB::MB_X1MASK] = false;
+	mouseDown[MB::MB_X2MASK] = false;
 }
 
 InputHandler::~InputHandler()

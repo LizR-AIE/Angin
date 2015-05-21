@@ -30,4 +30,16 @@ void FlyCamera3D::update(const float a_deltaTime)
 	{
 		transform = glm::translate(transform, glm::vec3(-1, 0, 0));
 	}
+	if (InputHandler::Get()->IsKeyDown(KEY::KEY_D))
+	{
+		transform = glm::translate(transform, glm::vec3( 1, 0, 0));
+	}
+	if (InputHandler::Get()->IsKeyDown(KEY::KEY_S))
+	{
+		transform = glm::translate(transform, glm::vec3(0, 0, 1));
+	}
+	if (InputHandler::Get()->IsKeyDown(KEY::KEY_W))
+	{
+		transform = glm::translate(transform, glm::vec3(0, 0, -1));
+	}
 }

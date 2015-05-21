@@ -61,6 +61,22 @@ void Game::Run()
 			{
 				InputHandler::Get()->keyDown[(KEY)e.key.keysym.sym] = false;
 			}
+			else if (e.type == SDL_EventType::SDL_MOUSEBUTTONDOWN)
+			{
+				InputHandler::Get()->mouseDown[(MB)e.button.button] = true;
+			}
+			else if (e.type == SDL_EventType::SDL_MOUSEBUTTONUP)
+			{
+				InputHandler::Get()->mouseDown[(MB)e.button.button] = false;
+			}
+			else if (e.type == SDL_EventType::SDL_MOUSEMOTION)
+			{
+
+			}
+			else if (e.type == SDL_EventType::SDL_MOUSEWHEEL)
+			{
+
+			}
 		}
 		Gizmos::clear();
 

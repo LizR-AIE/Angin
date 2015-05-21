@@ -37,13 +37,14 @@ void UITesting::Update(float a_deltaTime)
 {
 	camera->update(a_deltaTime);
 	
-	for(auto key : InputHandler::Get()->keyDown)
+	// Prints the keycode for the key being pressed
+	/*for(auto key : InputHandler::Get()->keyDown)
 	{
 		if(InputHandler::Get()->IsKeyDown(key.first))
 		{
 			std::cout << std::to_string((unsigned int)key.first).c_str() << std::endl;
 		}
-	}
+	}*/
 	
 	Gizmos::add2DAABBFilled(glm::vec2(580, 260), glm::vec2(50, 50), glm::vec4(1, 0, 1, 1));
 	Gizmos::addSphere(glm::vec3(0, 0, 0), 1.0f, 32, 32, glm::vec4(1, 1, 1, 1));
