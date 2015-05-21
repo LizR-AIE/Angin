@@ -4,6 +4,8 @@
 #include <SDL_opengl.h>
 #include <Gizmos.h>
 #include "glm\ext.hpp"
+#include <InputHandler.h>
+#include <string>
 
 Game * Game::m_game = nullptr;
 
@@ -14,8 +16,8 @@ UITesting::UITesting()
 	orthoView = glm::lookAt(glm::vec3(0, 0, -1), glm::vec3(0), glm::vec3(0, 1, 0));
 	orthoProjection = glm::ortho(-640.f, 640.f, -320.f, 320.f, 0.1f, 1000.f);
 
-	camera = new Camera3D();
-	camera->setLookAt(glm::vec3(10, 10, 10), glm::vec3(0), glm::vec3(0, 1, 0));
+	camera = new FlyCamera3D();
+	camera->lookAt(glm::vec3(10, 10, 10), glm::vec3(0), glm::vec3(0, 1, 0));
 	camera->setPerspective(glm::pi<float>() * 0.25f, 16 / 9.f, 0.1f, 1000.f);
 }
 
@@ -34,6 +36,15 @@ void UITesting::Create()
 void UITesting::Update(float a_deltaTime)
 {
 	camera->update(a_deltaTime);
+	
+	for(auto key : InputHandler::Get()->keyDown)
+	{
+		if(InputHandler::Get()->IsKeyDown(key.first))
+		{
+			std::cout << std::to_string((unsigned int)key.first).c_str() << std::endl;
+		}
+	}
+	
 	Gizmos::add2DAABBFilled(glm::vec2(580, 260), glm::vec2(50, 50), glm::vec4(1, 0, 1, 1));
 	Gizmos::addSphere(glm::vec3(0, 0, 0), 1.0f, 32, 32, glm::vec4(1, 1, 1, 1));
 }

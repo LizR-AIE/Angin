@@ -1,9 +1,7 @@
 #pragma once
 #include <Game.h>
-
 #include "glm\glm.hpp"
-
-#include <Camera3D.h>
+#include <FlyCamera3D.h>
 
 class UITesting : public Game
 {
@@ -24,5 +22,5 @@ protected:
 	glm::mat4 perspProjection;
 	glm::mat4 perspView;
 
-	Camera3D* camera;
+	FlyCamera3D* camera;
 };

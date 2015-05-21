@@ -61,7 +61,7 @@
       <SubSystem>Console</SubSystem>
     </Link>
     <PostBuildEvent>
-      <Command>COPY /V /-Y "$(SolutionDir)\Builds\$(Configuration)\Angin\Angin.dll" "$(OutDir)";</Command>
+      <Command>COPY /V /Y "$(SolutionDir)\Builds\$(Configuration)\Angin\Angin.dll" "$(OutDir)";</Command>
     </PostBuildEvent>
     <PostBuildEvent>
       <Message>Copy Angin.dll from Angine build folder to OutDir</Message>

@@ -36,6 +36,12 @@
     <ClCompile Include="source\Camera2D.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="source\BaseCamera.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Camera3D.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\Object.h">
@@ -60,6 +66,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="include\Camera2D.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\BaseCamera.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

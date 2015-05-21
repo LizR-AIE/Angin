@@ -43,18 +43,23 @@ void Game::Run()
 			}
 			else if (e.type == SDL_KEYDOWN)
 			{
+				InputHandler::Get()->keyDown[(KEY)e.key.keysym.sym] = true;
 				switch (e.key.keysym.sym)
 				{
-				case SDLK_ESCAPE:
-				{
-									gQuit = true;
-									break;
+					case SDLK_ESCAPE:
+					{
+						gQuit = true;
+						break;
+					}
+					default:
+					{
+						break;
+					}
 				}
-				default:
-				{
-						   break;
-				}
-				}
+			}
+			else if(e.type == SDL_KEYUP)
+			{
+				InputHandler::Get()->keyDown[(KEY)e.key.keysym.sym] = false;
 			}
 		}
 		Gizmos::clear();

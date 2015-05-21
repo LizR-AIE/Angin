@@ -1,23 +1,30 @@
 #pragma once
+#include "BaseCamera.h"
 
-#include "glm\glm.hpp"
+#ifdef ANGIN_EXPORTS
+#	define ANGIN_API __declspec(dllexport)
+#else
+#	define ANGIN_API __declspec(dllimport)
+#endif
 
-class Camera2D
+
+#include "glm\mat3x3.hpp"
+#include "glm\mat4x4.hpp"
+
+class Camera2D : public BaseCamera
 {
 public:
-	Camera2D();
-	Camera2D(float left, float right, float top, float bottom, float near, float far);
-	~Camera2D();
+	ANGIN_API Camera2D();
+	ANGIN_API Camera2D(	const float left, const float right, 
+						const float top,  const float bottom, 
+						const float near, const float far);
+	ANGIN_API ~Camera2D();
 
 private:
-	glm::mat3 transform;
-	glm::mat4 projection;
-	glm::mat4 view;
 	float left;
 	float right;
 	float top;
 	float bottom;
-	float near;
-	float far;
+
 };
 
