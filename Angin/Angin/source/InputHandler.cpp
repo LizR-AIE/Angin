@@ -243,7 +243,7 @@ InputHandler::InputHandler()
 
 	mouseDown[MB::MB_LEFT] = false;
 	mouseDown[MB::MB_MIDDLE] = false;
-	mouseDown[MB::MB_RIGHT] = false;
+	mouseDown[MB::MB_RITE] = false;
 	mouseDown[MB::MB_X1] = false;
 	mouseDown[MB::MB_X2] = false;
 	mouseDown[MB::MB_LMASK] = false;
@@ -276,4 +276,9 @@ void InputHandler::Destroy()
 bool InputHandler::IsKeyDown(const KEY a_keyCode)
 {
 	return keyDown[a_keyCode];
+}
+
+bool InputHandler::IsMouseDown(const MB a_mouseCode)
+{
+	return mouseDown[a_mouseCode];
 }

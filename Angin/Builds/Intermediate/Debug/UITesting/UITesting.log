@@ -1,0 +1,21 @@
+﻿Build started 24/05/2015 3:52:52 PM.
+     1>Project "L:\Git Repos\Angin\Angin\TechDemos\UITesting\UITesting.vcxproj" on node 2 (Build target(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /I"L:\Git Repos\Angin\Angin\\Angin\include\\" /I"L:\Git Repos\Angin\Angin\TechDemos\UITesting\\include\\" /I"L:\Git Repos\Angin\Angin\\3rdParty\glm\\" /I"L:\Git Repos\Angin\Angin\\3rdParty\SDL2\include\\" /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _MBCS /D _DEBUG /D GLM_FORCE_PURE /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"L:\Git Repos\Angin\Angin\\Builds\Intermediate\Debug\UITesting\\" /Fd"L:\Git Repos\Angin\Angin\\Builds\Intermediate\Debug\UITesting\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt source\UITesting.cpp
+         UITesting.cpp
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"L:\Git Repos\Angin\Angin\\Builds\Debug\UITesting\UITesting.exe" /INCREMENTAL /NOLOGO /LIBPATH:"L:\Git Repos\Angin\Angin\3rdParty\SDL2\lib\x86\\" SDL2.lib SDL2main.lib OpenGL32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"L:\Git Repos\Angin\Angin\\Builds\Debug\UITesting\UITesting.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"L:\Git Repos\Angin\Angin\\Builds\Debug\UITesting\UITesting.lib" /MACHINE:X86 "L:\Git Repos\Angin\Angin\\Builds\Intermediate\Debug\UITesting\UITesting.res"
+         "L:\Git Repos\Angin\Angin\\Builds\Intermediate\Debug\UITesting\main.obj"
+         "L:\Git Repos\Angin\Angin\\Builds\Intermediate\Debug\UITesting\UITesting.obj"
+         "L:\Git Repos\Angin\Angin\Builds\Debug\Angin\Angin.lib"
+     1>MSVCRTD.lib(cinitexe.obj) : warning LNK4098: defaultlib 'msvcrt.lib' conflicts with use of other libs; use /NODEFAULTLIB:library
+         UITesting.vcxproj -> L:\Git Repos\Angin\Angin\\Builds\Debug\UITesting\UITesting.exe
+       PostBuildEvent:
+         COPY /V /Y "L:\Git Repos\Angin\Angin\\Builds\Debug\Angin\Angin.dll" "L:\Git Repos\Angin\Angin\\Builds\Debug\UITesting\";
+         :VCEnd
+                 1 file(s) copied.
+     1>Done Building Project "L:\Git Repos\Angin\Angin\TechDemos\UITesting\UITesting.vcxproj" (Build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:01.30

@@ -1,6 +1,8 @@
 #include "FlyCamera3D.h"
 #include "InputHandler.h"
 
+#include <iostream>
+
 FlyCamera3D::FlyCamera3D()
 {
 
@@ -41,5 +43,12 @@ void FlyCamera3D::update(const float a_deltaTime)
 	if (InputHandler::Get()->IsKeyDown(KEY::KEY_W))
 	{
 		transform = glm::translate(transform, glm::vec3(0, 0, -1));
+	}
+
+	// If right mouse is down
+	if (InputHandler::Get()->IsMouseDown(MB::MB_RITE))
+	{
+		// Then rotate the camera
+		
 	}
 }

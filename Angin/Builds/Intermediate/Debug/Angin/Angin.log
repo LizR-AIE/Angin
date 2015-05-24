@@ -1,0 +1,30 @@
+﻿Build started 24/05/2015 3:52:49 PM.
+     1>Project "L:\Git Repos\Angin\Angin\Angin\Angin.vcxproj" on node 2 (Build target(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /I"L:\Git Repos\Angin\Angin\Angin\\include\\" /I"L:\Git Repos\Angin\Angin\\3rdParty\glm\\" /I"L:\Git Repos\Angin\Angin\\3rdParty\SDL2\include\\" /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _LIB /D ANGIN_EXPORTS /D GLM_FORCE_PURE /D _WINDLL /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"L:\Git Repos\Angin\Angin\\Builds\Intermediate\Debug\Angin\\" /Fd"L:\Git Repos\Angin\Angin\\Builds\Intermediate\Debug\Angin\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt source\FlyCamera.cpp source\Game.cpp source\InputHandler.cpp
+         InputHandler.cpp
+         Game.cpp
+         FlyCamera.cpp
+         Generating Code...
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"L:\Git Repos\Angin\Angin\\Builds\Debug\Angin\Angin.dll" /INCREMENTAL /NOLOGO /LIBPATH:"L:\Git Repos\Angin\Angin\3rdParty\SDL2\lib\x86\\" SDL2.lib SDL2main.lib OpenGL32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"L:\Git Repos\Angin\Angin\\Builds\Debug\Angin\Angin.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"L:\Git Repos\Angin\Angin\\Builds\Debug\Angin\Angin.lib" /MACHINE:X86 /DLL "L:\Git Repos\Angin\Angin\\Builds\Intermediate\Debug\Angin\BaseCamera.obj"
+         "L:\Git Repos\Angin\Angin\\Builds\Intermediate\Debug\Angin\Camera2D.obj"
+         "L:\Git Repos\Angin\Angin\\Builds\Intermediate\Debug\Angin\Camera3D.obj"
+         "L:\Git Repos\Angin\Angin\\Builds\Intermediate\Debug\Angin\InputHandler.obj"
+         "L:\Git Repos\Angin\Angin\\Builds\Intermediate\Debug\Angin\FlyCamera.obj"
+         "L:\Git Repos\Angin\Angin\\Builds\Intermediate\Debug\Angin\Game.obj"
+         "L:\Git Repos\Angin\Angin\\Builds\Intermediate\Debug\Angin\Gizmos.obj"
+         "L:\Git Repos\Angin\Angin\\Builds\Intermediate\Debug\Angin\Object.obj"
+         "L:\Git Repos\Angin\Angin\\Builds\Intermediate\Debug\Angin\Window.obj"
+            Creating library L:\Git Repos\Angin\Angin\\Builds\Debug\Angin\Angin.lib and object L:\Git Repos\Angin\Angin\\Builds\Debug\Angin\Angin.exp
+         Angin.vcxproj -> L:\Git Repos\Angin\Angin\\Builds\Debug\Angin\Angin.dll
+       PostBuildEvent:
+         COPY /V /-Y "L:\Git Repos\Angin\Angin\\Builds\Debug\StandardLib\StandardLib.dll" "L:\Git Repos\Angin\Angin\\Builds\Debug\Angin\";
+         :VCEnd
+         Overwrite L:\Git Repos\Angin\Angin\\Builds\Debug\Angin\StandardLib.dll? (Yes/No/All): 
+                 0 file(s) copied.
+     1>Done Building Project "L:\Git Repos\Angin\Angin\Angin\Angin.vcxproj" (Build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:02.42

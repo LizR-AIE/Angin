@@ -268,15 +268,15 @@ enum class KEY : SDL_Keycode
 enum class MB
 {
 	MB_LEFT		= SDL_BUTTON_LEFT		,
-	MB_MIDDLE	= SDL_BUTTON_MIDDLE	,
-	MB_RIGHT	= SDL_BUTTON_RIGHT		,
+	MB_MIDDLE	= SDL_BUTTON_MIDDLE		,
+	MB_RITE		= SDL_BUTTON_RIGHT		,
 	MB_X1		= SDL_BUTTON_X1			,
 	MB_X2		= SDL_BUTTON_X2			,
 	MB_LMASK	= SDL_BUTTON_LMASK		,
 	MB_MMASK	= SDL_BUTTON_MMASK		,
 	MB_RMASK	= SDL_BUTTON_RMASK		,
-	MB_X1MASK	= SDL_BUTTON_X1MASK	,
-	MB_X2MASK	= SDL_BUTTON_X2MASK	,
+	MB_X1MASK	= SDL_BUTTON_X1MASK		,
+	MB_X2MASK	= SDL_BUTTON_X2MASK		
 };
 
 class InputHandler
@@ -295,7 +295,7 @@ public:
 	ANGIN_API inline static InputHandler * Get(){ return m_inputHandler; }
 	
 	ANGIN_API bool IsKeyDown(const KEY KeyCode);
-
+	ANGIN_API bool IsMouseDown(const MB MouseCode);
 
 private:
 	// Singleton instance
