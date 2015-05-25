@@ -23,4 +23,7 @@ protected:
 	glm::mat4 perspView;
 
 	FlyCamera3D* camera;
+
+	glm::vec3 m_positions[2];
+	glm::quat m_rotations[2];
 };

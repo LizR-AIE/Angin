@@ -41,6 +41,8 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <OutDir>$(SolutionDir)\Builds\$(Configuration)\$(ProjectName)\</OutDir>
     <IntDir>$(SolutionDir)\Builds\Intermediate\$(Configuration)\$(ProjectName)\</IntDir>
+    <CustomBuildBeforeTargets>Run</CustomBuildBeforeTargets>
+    <CustomBuildAfterTargets>Build</CustomBuildAfterTargets>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <OutDir>$(SolutionDir)\Builds\$(Configuration)\$(ProjectName)\</OutDir>
@@ -66,6 +68,14 @@
     <PostBuildEvent>
       <Message>Copy Angin.dll from Angine build folder to OutDir</Message>
     </PostBuildEvent>
+    <PreBuildEvent>
+      <Command>
+      </Command>
+    </PreBuildEvent>
+    <CustomBuildStep>
+      <Command>COPY /V /-Y "$(SolutionDir)\Builds\$(Configuration)\Angin\Angin.dll" "$(OutDir)";</Command>
+      <Outputs>$(OutDir)plzrun.bat</Outputs>
+    </CustomBuildStep>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>

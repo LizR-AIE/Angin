@@ -251,6 +251,9 @@ InputHandler::InputHandler()
 	mouseDown[MB::MB_RMASK] = false;
 	mouseDown[MB::MB_X1MASK] = false;
 	mouseDown[MB::MB_X2MASK] = false;
+
+	thisMouse = glm::vec2();
+	lastMouse = glm::vec2();
 }
 
 InputHandler::~InputHandler()
@@ -281,4 +284,9 @@ bool InputHandler::IsKeyDown(const KEY a_keyCode)
 bool InputHandler::IsMouseDown(const MB a_mouseCode)
 {
 	return mouseDown[a_mouseCode];
+}
+
+glm::vec2 InputHandler::GetRelativeMouseMovement()
+{
+	return glm::vec2(thisMouse - lastMouse);
 }

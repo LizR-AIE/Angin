@@ -5,6 +5,9 @@
 
 BaseCamera::BaseCamera()
 {
+	position = glm::vec3();
+	rotation = glm::quat();
+	scale = glm::vec4();
 	transform = glm::mat4(1);
 	projection = glm::mat4(1);
 	view = glm::mat4(1);

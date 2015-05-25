@@ -8,6 +8,9 @@
 
 #include "glm\mat3x3.hpp"
 #include "glm\mat4x4.hpp"
+#include "glm\vec3.hpp"
+#include "glm\vec4.hpp"
+#include "glm\gtx\quaternion.hpp"
 
 class BaseCamera
 {
@@ -26,7 +29,9 @@ public:
 	ANGIN_API glm::mat4 getProjectionView();
 	
 protected:
-	
+	glm::vec3 position;
+	glm::quat rotation;
+	glm::vec4 scale;
 	glm::mat4 transform;
 	glm::mat4 projection;
 	glm::mat4 view;

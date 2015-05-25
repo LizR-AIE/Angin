@@ -9,6 +9,7 @@
 #include <SDL.h>
 #include <SDL_keycode.h>
 #include <map>
+#include "glm\vec2.hpp"
 
 enum class KEY : SDL_Keycode
 {
@@ -281,6 +282,7 @@ enum class MB
 
 class InputHandler
 {
+	friend class Game;
 public:
 	//--------------------------------
 	// Keys enum
@@ -310,10 +312,13 @@ private:
 	
 public:
 	ANGIN_API virtual ~InputHandler();
+	ANGIN_API glm::vec2 GetRelativeMouseMovement();
+	
+protected:
 	std::map<KEY, bool> keyDown;
 	std::map<MB, bool> mouseDown;
-protected:
-	
 
+	glm::vec2 thisMouse;
+	glm::vec2 lastMouse;
 };
 

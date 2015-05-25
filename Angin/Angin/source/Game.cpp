@@ -9,9 +9,16 @@ Game * Game::m_game = nullptr;
 #include "InputHandler.h"
 #include "Window.h"
 
+#include <iostream>
+
 Game::Game()
 {
 	InputHandler::Create();
+	
+	deltaTime		= 0.0f;
+	thisTotalTicks	= 0.0f;
+	lastTotalTicks	= 0.0f;
+	timeSinceLaunch = 0.0f;
 }
 
 Game::~Game()
@@ -71,7 +78,19 @@ void Game::Run()
 			}
 			else if (e.type == SDL_EventType::SDL_MOUSEMOTION)
 			{
-
+				if(InputHandler::Get()->lastMouse == glm::vec2())
+				{
+					InputHandler::Get()->thisMouse.x = e.motion.x;
+					InputHandler::Get()->thisMouse.y = e.motion.y;
+					InputHandler::Get()->lastMouse = InputHandler::Get()->thisMouse;
+				}
+				else
+				{
+					InputHandler::Get()->lastMouse = InputHandler::Get()->thisMouse;
+					InputHandler::Get()->thisMouse.x = e.motion.x;
+					InputHandler::Get()->thisMouse.y = e.motion.y;
+				}
+				
 			}
 			else if (e.type == SDL_EventType::SDL_MOUSEWHEEL)
 			{
@@ -310,4 +329,10 @@ void Game::UpdateDeltaTime()
 	lastTotalTicks = thisTotalTicks;
 	thisTotalTicks = SDL_GetTicks();
 	deltaTime = ((float)thisTotalTicks - (float)lastTotalTicks) / 1000.f;
+	timeSinceLaunch = thisTotalTicks;
+}
+
+float Game::TimeSinceLaunch()
+{
+	return timeSinceLaunch;
 }
