@@ -288,5 +288,5 @@ bool InputHandler::IsMouseDown(const MB a_mouseCode)
 
 glm::vec2 InputHandler::GetRelativeMouseMovement()
 {
-	return glm::vec2(thisMouse - lastMouse);
+	return glm::vec2(lastMouse - thisMouse);
 }

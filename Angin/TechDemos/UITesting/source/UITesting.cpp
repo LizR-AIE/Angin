@@ -17,7 +17,7 @@ UITesting::UITesting()
 	orthoProjection = glm::ortho(-640.f, 640.f, -320.f, 320.f, 0.1f, 1000.f);
 
 	camera = new FlyCamera3D();
-	camera->lookAt(glm::vec3(10, 10, 10), glm::vec3(0), glm::vec3(0, 1, 0));
+	camera->lookAt(glm::vec3(2, 2, 2), glm::vec3(0), glm::vec3(0, 1, 0));
 	camera->setPerspective(glm::pi<float>() * 0.25f, 16 / 9.f, 0.1f, 1000.f);
 
 	m_positions[0] = glm::vec3(10, 5, 10);
@@ -41,17 +41,17 @@ void UITesting::Create()
 void UITesting::Update(float a_deltaTime)
 {
 	camera->update(a_deltaTime);
-	glm::vec2 mouseMovement = InputHandler::Get()->GetRelativeMouseMovement();
-	//std::cout << "X: " << mouseMovement.x << std::endl;
-	//std::cout << "Y: " << mouseMovement.y << std::endl;
+		
 	// Prints the keycode for the key being pressed
-	/*for(auto key : InputHandler::Get()->keyDown)
+	/*
+	for(auto key : InputHandler::Get()->keyDown)
 	{
 		if(InputHandler::Get()->IsKeyDown(key.first))
 		{
 			std::cout << std::to_string((unsigned int)key.first).c_str() << std::endl;
 		}
-	}*/
+	}
+	*/
 	
 	// use time to animate a alue between [0, 1]
 	static float t = 0;
@@ -69,6 +69,14 @@ void UITesting::Update(float a_deltaTime)
 
 	//Gizmos::add2DAABBFilled(glm::vec2(580, 260), glm::vec2(50, 50), glm::vec4(1, 0, 1, 1));
 	//Gizmos::addSphere(glm::vec3(0, 0, 0), 1.0f, 32, 32, glm::vec4(1, 1, 1, 1));
+
+	Gizmos::addAABBFilled(glm::vec3(0, 0, 0), glm::vec3(1, 1, 1), glm::vec4(1, 0, 1, 1));
+
+	/*
+	template<typename valType >
+	detail::tquat< valType >  angleAxis (valType const &angle, detail::tvec3< valType > const &v)
+	Build a quaternion from an angle and an axis.
+	*/
 }
 
 void UITesting::Render()

@@ -22,52 +22,49 @@ FlyCamera3D::~FlyCamera3D()
 
 void FlyCamera3D::update(const float a_deltaTime)
 {
-	/*
-	controls and apply the correct transforms to the camera’s transform, 
-	then you would calculate the inverse of the transform for the updated view
-	*/
 	float translationSpeed = 10.f * a_deltaTime;
-	float rotationSpeed = 0.5f * a_deltaTime;
+	float rotationSpeed = 0.03f * a_deltaTime;
 
 	if(InputHandler::Get()->IsKeyDown(KEY::KEY_A))
-	{
-		position += glm::vec3(-translationSpeed, 0, 0);
-		//transform = glm::translate(transform, glm::vec3(-translationSpeed, 0, 0));
-	}
+	{ position += glm::vec3(-translationSpeed, 0, 0); }
 	if (InputHandler::Get()->IsKeyDown(KEY::KEY_D))
-	{
-		position += glm::vec3( translationSpeed, 0, 0);
-		//transform = glm::translate(transform, glm::vec3( translationSpeed, 0, 0));
-	}
+	{ position += glm::vec3( translationSpeed, 0, 0); }
 	if (InputHandler::Get()->IsKeyDown(KEY::KEY_S))
-	{
-		position += glm::vec3(0, 0, translationSpeed);
-		//transform = glm::translate(transform, glm::vec3(0, 0, translationSpeed));
-	}
+	{ position += glm::vec3(0, 0, translationSpeed); }
 	if (InputHandler::Get()->IsKeyDown(KEY::KEY_W))
-	{
-		position += glm::vec3(0, 0, -translationSpeed);
-		//transform = glm::translate(transform, glm::vec3(0, 0, -translationSpeed));
-	}
+	{ position += glm::vec3(0, 0, -translationSpeed); }
+	if (InputHandler::Get()->IsKeyDown(KEY::KEY_Q))
+	{ position += glm::vec3(0, translationSpeed, 0); }
+	if (InputHandler::Get()->IsKeyDown(KEY::KEY_E))
+	{ position += glm::vec3(0, -translationSpeed, 0);}
 
+	transform = glm::translate(transform, position);
+	position = glm::vec3(0, 0, 0);
+
+	// MATRIX
 	// If right mouse is down
+	/*
 	if (InputHandler::Get()->IsMouseDown(MB::MB_RITE))
 	{
 		glm::vec2 mouseMovement = InputHandler::Get()->GetRelativeMouseMovement() * rotationSpeed;
 		
-		static float time = 0;
-		time += a_deltaTime;
-		
-		glm::quat newRot = rotation;
-						  		
-		//newRot = glm::rotate(newRot, mouseMovement.y * rotationSpeed, glm::vec3(-1.f, 0.f, 0.f));
-		//newRot = glm::rotate(newRot, mouseMovement.x * rotationSpeed, glm::vec3( 0.f,-1.f, 0.f));
-		//newRot += glm::vec3();
-		
-		rotation = glm::slerp(rotation, newRot, time);
-
-		//transform = glm::rotate(transform, mouseMovement.y * rotationSpeed, glm::vec3(-1.f, 0.f, 0.f));		
-		//transform = glm::rotate(transform, mouseMovement.x * rotationSpeed, glm::vec3( 0.f,-1.f, 0.f));
+		transform = glm::rotate(transform, mouseMovement.y * rotationSpeed, glm::vec3(-1.f, 0.f, 0.f));		
+		transform = glm::rotate(transform, mouseMovement.x * rotationSpeed, glm::vec3( 0.f,-1.f, 0.f));
 	}
-	transform = glm::translate(position) * glm::toMat4(rotation);
+	*/
+
+	// QUAT
+
+	if (InputHandler::Get()->IsMouseDown(MB::MB_RITE))
+	{
+		glm::vec2 mouseMovement = InputHandler::Get()->GetRelativeMouseMovement() * rotationSpeed;
+		
+		glm::quat rot = glm::quat();
+		rot *= glm::angleAxis(mouseMovement.x, glm::vec3(0.f, 1.f, 0.f));
+		rot *= glm::angleAxis(mouseMovement.y, glm::vec3(1.f, 0.f, 0.f));
+		
+		rot  = glm::normalize(rot);
+		
+		transform = transform * glm::mat4(rot);
+	}
 }
