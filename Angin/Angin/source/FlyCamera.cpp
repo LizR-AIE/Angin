@@ -23,7 +23,7 @@ FlyCamera3D::~FlyCamera3D()
 void FlyCamera3D::update(const float a_deltaTime)
 {
 	float translationSpeed = 10.f * a_deltaTime;
-	float rotationSpeed = 0.03f * a_deltaTime;
+	float rotationSpeed = 0.05f * a_deltaTime;
 
 	if(InputHandler::Get()->IsKeyDown(KEY::KEY_A))
 	{ position += glm::vec3(-translationSpeed, 0, 0); }
@@ -43,18 +43,19 @@ void FlyCamera3D::update(const float a_deltaTime)
 
 	// MATRIX
 	// If right mouse is down
-	/*
+	
 	if (InputHandler::Get()->IsMouseDown(MB::MB_RITE))
 	{
 		glm::vec2 mouseMovement = InputHandler::Get()->GetRelativeMouseMovement() * rotationSpeed;
-		
-		transform = glm::rotate(transform, mouseMovement.y * rotationSpeed, glm::vec3(-1.f, 0.f, 0.f));		
-		transform = glm::rotate(transform, mouseMovement.x * rotationSpeed, glm::vec3( 0.f,-1.f, 0.f));
+		glm::vec3 axisX = (glm::vec3)transform[0];
+
+		transform = glm::rotate(transform, mouseMovement.x, glm::vec3(0.f,1.f,0.f));
+		transform = glm::rotate(transform, mouseMovement.y, axisX);
 	}
-	*/
+	
 
 	// QUAT
-
+	/*
 	if (InputHandler::Get()->IsMouseDown(MB::MB_RITE))
 	{
 		glm::vec2 mouseMovement = InputHandler::Get()->GetRelativeMouseMovement() * rotationSpeed;
@@ -65,6 +66,7 @@ void FlyCamera3D::update(const float a_deltaTime)
 		
 		rot  = glm::normalize(rot);
 		
-		transform = transform * glm::mat4(rot);
+		transform = transform * glm::toMat4(rot);
 	}
+	*/
 }
